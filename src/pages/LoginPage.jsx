@@ -1,4 +1,4 @@
-// frontend/src/pages/LoginPage.js
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { loginTenant } from "../api/shopify";
@@ -16,15 +16,14 @@ export default function LoginPage() {
       const res = await loginTenant(email, password);
 
       if (res.success) {
-        // Get tenant details from response
+      
         const tenant = res.tenant;
 
         const tenantId = tenant._id;
         const tenantName = tenant.name;
         const shopDomain = tenant.shopDomain;
-        const accessToken = tenant.accessToken; // ✅ Make sure accessToken comes from tenant object
+        const accessToken = tenant.accessToken;
 
-        // Save tenant details in localStorage
         localStorage.setItem("tenantId", tenantId);
         localStorage.setItem("tenantName", tenantName);
         localStorage.setItem("shopDomain", shopDomain);
@@ -33,7 +32,6 @@ export default function LoginPage() {
 
         alert("Login successful! Syncing data...");
 
-        // Automatically sync Shopify data to MongoDB
         await syncData("customers", shopDomain, accessToken);
         await syncData("orders", shopDomain, accessToken);
         await syncData("products", shopDomain, accessToken);
@@ -98,3 +96,4 @@ export default function LoginPage() {
     </div>
   );
 }
+
