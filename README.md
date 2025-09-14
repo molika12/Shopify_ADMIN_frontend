@@ -108,20 +108,21 @@ npm start
 
 
 Architecture Diagram
-         ┌─────────────┐
-│ Frontend │ (React + Tailwind)
-│ Dashboard │
-└──────┬──────┘
-│ API calls
-┌─────────────┐
-│ Backend │ (Node.js + Express)
-└──────┬──────┘
-│
-┌──────┼─────────────┐
-│ │ │
-Shopify API MongoDB Auth Layer
-(Live data) (Tenant (JWT-based,
-credentials) tenant isolation)
+        ┌─────────────┐
+        │  Frontend   │ (React + Tailwind)
+        │  Dashboard  │
+        └──────┬──────┘
+               │ API calls
+        ┌─────────────┐
+        │  Backend    │ (Node.js + Express)
+        └──────┬──────┘
+               │
+   ┌───────────┼───────────┐
+   │           │           │
+Shopify API   MongoDB    Auth Layer
+(Live data)  (Tenant     (JWT-based,
+            credentials) tenant isolation)
+
    
   Deployment
 -	Backend Deployment
