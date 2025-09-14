@@ -1,4 +1,4 @@
-// components/TopCustomers.js
+
 import React from "react";
 
 export function TopCustomers({ customers }) {
@@ -28,3 +28,4 @@ export function TopCustomers({ customers }) {
     </ul>
   );
 }
+
