@@ -1,4 +1,4 @@
-// src/components/OrdersChart.jsx
+
 import {
   LineChart,
   Line,
@@ -10,7 +10,6 @@ import {
 } from "recharts";
 
 export function OrdersChart({ orders }) {
-  // Transform orders into data for chart
   const data = orders.map((order, i) => ({
     name: `Order ${i + 1}`,
     total: order.total,
@@ -27,7 +26,7 @@ export function OrdersChart({ orders }) {
           <Line
             type="monotone"
             dataKey="total"
-            stroke="#4F46E5" // Indigo (Shopify-ish color)
+            stroke="#4F46E5" 
             strokeWidth={2}
             dot={{ r: 4 }}
             activeDot={{ r: 6 }}
@@ -37,3 +36,4 @@ export function OrdersChart({ orders }) {
     </div>
   );
 }
+
