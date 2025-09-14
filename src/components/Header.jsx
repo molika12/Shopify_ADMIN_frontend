@@ -1,15 +1,14 @@
-// src/components/Header.jsx
 import { Search, Bell, User } from "lucide-react";
 
 export function Header() {
   return (
     <header className="flex items-center justify-between bg-white shadow-md px-6 py-4">
-      {/* Logo */}
+     
       <div className="flex items-center gap-2">
        
       </div>
 
-      {/* Search Bar */}
+     
       <div className="flex-1 max-w-lg mx-6">
         <div className="relative">
           <input
@@ -24,15 +23,15 @@ export function Header() {
         </div>
       </div>
 
-      {/* Right Section */}
+   
       <div className="flex items-center gap-6">
-        {/* Notifications */}
+       
         <button className="relative text-gray-600 hover:text-green-600">
           <Bell size={22} />
           
         </button>
 
-        {/* User Profile */}
+      
         <div className="flex items-center gap-2">
           
           <span className="font-medium text-gray-700 hidden md:inline">
@@ -44,3 +43,4 @@ export function Header() {
     </header>
   );
 }
+
