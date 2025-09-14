@@ -1,4 +1,3 @@
-// src/pages/OrdersPage.jsx
 import { useEffect, useState } from "react";
 import { Header } from "../components/Header";
 import { Sidebar } from "../components/Sidebar";
@@ -115,7 +114,7 @@ export default function OrdersPage() {
         </main>
       </div>
 
-      {/* Modal */}
+    
       {selectedOrder && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-40 z-50">
           <div className="bg-white rounded-xl shadow-lg w-1/2 p-6 relative">
@@ -164,3 +163,4 @@ export default function OrdersPage() {
     </div>
   );
 }
+
