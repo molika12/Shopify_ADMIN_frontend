@@ -1,4 +1,4 @@
-// src/components/Sidebar.jsx
+
 import { NavLink, useNavigate } from "react-router-dom";
 import {
   LayoutDashboard,
@@ -13,11 +13,11 @@ export function Sidebar() {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-  // Clear tenant info
+  
   localStorage.removeItem("tenantId");
   localStorage.removeItem("tenantName");
-  // Redirect to login page
-  navigate("/login"); // this should match the route of LoginPage.jsx
+ 
+  navigate("/login");
 };
 
 
@@ -27,12 +27,12 @@ export function Sidebar() {
 
   return (
     <aside className="w-64 bg-white shadow-xl min-h-screen flex flex-col">
-      {/* Logo / Brand */}
+   
       <div className="p-6 border-b">
         <h1 className="text-2xl font-bold text-green-600">Shopify Admin</h1>
       </div>
 
-      {/* Navigation */}
+  
       <nav className="flex-1 p-4 space-y-2">
         <NavLink to="/dashboard" className={linkClasses}>
           <LayoutDashboard size={20} />
@@ -56,7 +56,7 @@ export function Sidebar() {
         </NavLink>
       </nav>
 
-      {/* Logout at bottom */}
+   
       <div className="p-4 border-t">
         <button
           onClick={handleLogout}
@@ -69,3 +69,4 @@ export function Sidebar() {
     </aside>
   );
 }
+
