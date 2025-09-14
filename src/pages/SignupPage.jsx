@@ -1,4 +1,4 @@
-// frontend/src/pages/SignupPage.js
+
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { signupTenant } from '../api/shopify';
@@ -108,3 +108,4 @@ export default function SignupPage() {
     </div>
   );
 }
+
