@@ -29,9 +29,7 @@ export function Header() {
         {/* Notifications */}
         <button className="relative text-gray-600 hover:text-green-600">
           <Bell size={22} />
-          <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full px-1">
-            3
-          </span>
+          
         </button>
 
         {/* User Profile */}
