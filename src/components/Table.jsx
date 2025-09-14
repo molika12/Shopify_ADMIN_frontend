@@ -1,4 +1,4 @@
-// src/components/Table.jsx
+
 export function Table({ columns, data }) {
   return (
     <div className="overflow-x-auto rounded-xl shadow bg-white">
@@ -30,7 +30,7 @@ export function Table({ columns, data }) {
               >
                 {columns.map((col, j) => (
                   <td key={j} className="px-4 py-3 text-gray-700">
-                    {row[col.toLowerCase()]} {/* assumes keys are lowercase */}
+                    {row[col.toLowerCase()]}
                   </td>
                 ))}
               </tr>
@@ -41,3 +41,4 @@ export function Table({ columns, data }) {
     </div>
   );
 }
+
