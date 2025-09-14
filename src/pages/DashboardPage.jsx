@@ -24,7 +24,7 @@ export default function DashboardPage() {
   const [customerStats, setCustomerStats] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // 🔄 Sync and fetch data
+
   useEffect(() => {
     const fetchData = async () => {
       if (!tenantId) return;
@@ -56,7 +56,6 @@ export default function DashboardPage() {
     fetchData();
   }, [tenantId]);
 
-  // 🧑‍🤝‍🧑 Top customers
   useEffect(() => {
     if (!customers.length || !orders.length) {
       setCustomerStats([]);
@@ -88,7 +87,7 @@ export default function DashboardPage() {
     setCustomerStats(stats.slice(0, 5));
   }, [customers, orders]);
 
-  // 📦 Top 5 products by revenue
+ 
   const topProducts = products
     .map((p) => {
       const relatedOrders = orders.filter((o) =>
@@ -112,18 +111,18 @@ export default function DashboardPage() {
     .sort((a, b) => b.revenue - a.revenue)
     .slice(0, 5);
 
-  // 🕒 Recent Orders
+
   const recentOrders = [...orders]
     .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
     .slice(0, 5);
 
-  // 💰 Customer chart data
+ 
   const customerChartData = customerStats.map((c) => ({
     name: c.name,
     totalSpent: c.totalSpent,
   }));
 
-  // Total revenue
+  
   const totalRevenue = orders.reduce(
     (acc, o) => acc + parseFloat(o.total_price || o.totalPrice || 0),
     0
@@ -144,7 +143,7 @@ export default function DashboardPage() {
       <div className="flex-1">
         <Header />
 
-        {/* Hero Banner */}
+       
 <div className="bg-yellow-500 text-white rounded-xl shadow-md mx-4 md:mx-8 mt-6 p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center justify-between">
           <div>
             <h1 className="text-2xl font-bold">Welcome back </h1>
@@ -155,7 +154,7 @@ export default function DashboardPage() {
         </div>
 
         <main className="p-4 md:p-8">
-          {/* Overview Section */}
+      
           <h2 className="text-lg font-semibold text-gray-700 mb-4">Overview</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <MetricCard
@@ -180,7 +179,7 @@ export default function DashboardPage() {
             />
           </div>
 
-          {/* Analytics Section */}
+        
           <h2 className="text-lg font-semibold text-gray-700 mt-10 mb-4">
             Analytics
           </h2>
@@ -202,7 +201,7 @@ export default function DashboardPage() {
             </div>
           </div>
 
-          {/* Recent Orders */}
+         
           <h2 className="text-lg font-semibold text-gray-700 mt-10 mb-4">
             Recent Orders
           </h2>
@@ -234,7 +233,7 @@ export default function DashboardPage() {
             )}
           </div>
 
-          {/* Top Products */}
+         
           <h2 className="text-lg font-semibold text-gray-700 mt-10 mb-4">
             Top Products
           </h2>
@@ -270,3 +269,4 @@ export default function DashboardPage() {
     </div>
   );
 }
+
