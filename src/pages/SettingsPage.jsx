@@ -8,7 +8,7 @@ export default function SettingsPage() {
 
   const handleSave = (e) => {
     e.preventDefault();
-    // Save logic here (call backend API)
+   
     alert(`Saved! Store Name: ${storeName}, Store Email: ${storeEmail}`);
   };
 
@@ -60,3 +60,4 @@ export default function SettingsPage() {
     </div>
   );
 }
+
