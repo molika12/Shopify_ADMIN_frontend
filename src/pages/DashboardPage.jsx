@@ -24,7 +24,7 @@ export default function DashboardPage() {
   const [customerStats, setCustomerStats] = useState([]);
   const [loading, setLoading] = useState(true);
 
-
+  
   useEffect(() => {
     const fetchData = async () => {
       if (!tenantId) return;
@@ -56,6 +56,7 @@ export default function DashboardPage() {
     fetchData();
   }, [tenantId]);
 
+  
   useEffect(() => {
     if (!customers.length || !orders.length) {
       setCustomerStats([]);
@@ -111,7 +112,7 @@ export default function DashboardPage() {
     .sort((a, b) => b.revenue - a.revenue)
     .slice(0, 5);
 
-
+  
   const recentOrders = [...orders]
     .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
     .slice(0, 5);
@@ -154,7 +155,7 @@ export default function DashboardPage() {
         </div>
 
         <main className="p-4 md:p-8">
-      
+       
           <h2 className="text-lg font-semibold text-gray-700 mb-4">Overview</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <MetricCard
@@ -169,7 +170,8 @@ export default function DashboardPage() {
             />
             <MetricCard
               title="Total Revenue"
-              value={`$${totalRevenue.toFixed(2)}`}
+             value={`₹${totalRevenue.toFixed(2)}`}
+
               icon={<DollarSign className="text-emerald-600" size={28} />}
             />
             <MetricCard
@@ -190,7 +192,7 @@ export default function DashboardPage() {
                 <BarChart data={customerChartData}>
                   <XAxis dataKey="name" />
                   <YAxis />
-                  <Tooltip formatter={(value) => `$${value.toFixed(2)}`} />
+                  <Tooltip formatter={(value) => `₹${value.toFixed(2)}`} />
                   <Bar dataKey="totalSpent" fill="#7c3aed" />
                 </BarChart>
               </ResponsiveContainer>
@@ -224,16 +226,17 @@ export default function DashboardPage() {
                         <p className="text-xs text-gray-500">{o.created_at}</p>
                       </div>
                     </div>
-                    <span className="text-gray-700 font-semibold">
-                      ${parseFloat(o.total_price || 0).toFixed(2)}
-                    </span>
+                   <span className="text-gray-700 font-semibold">
+                            ₹{parseFloat(o.total_price || 0).toFixed(2)}
+                          </span>
+
                   </li>
                 ))}
               </ul>
             )}
           </div>
 
-         
+        
           <h2 className="text-lg font-semibold text-gray-700 mt-10 mb-4">
             Top Products
           </h2>
@@ -253,11 +256,13 @@ export default function DashboardPage() {
                     </div>
                     <div className="text-right">
                       <p className="text-gray-700 font-semibold">
-                        ${p.revenue.toFixed(2)}
-                      </p>
-                      <p className="text-xs text-gray-500">
-                        {p.sold} sold @ ${p.price}
-                      </p>
+                            ₹{p.revenue.toFixed(2)}
+                          </p>
+
+                          <p className="text-xs text-gray-500">
+                            {p.sold} sold @ ₹{p.price}
+                          </p>
+
                     </div>
                   </li>
                 ))}
@@ -269,4 +274,3 @@ export default function DashboardPage() {
     </div>
   );
 }
-
