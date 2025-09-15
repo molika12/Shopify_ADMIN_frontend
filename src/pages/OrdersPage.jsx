@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import { Header } from "../components/Header";
 import { Sidebar } from "../components/Sidebar";
@@ -93,8 +94,7 @@ export default function OrdersPage() {
                             : "N/A"}
                         </span>
                       </td>
-                      <td className="px-6 py-4">${o.total_price || "0"}</td>
-                      <td className="px-6 py-4 capitalize">
+                          <td className="px-6 py-4">₹{o.total_price || "0"}</td>                      <td className="px-6 py-4 capitalize">
                         {o.financial_status || "N/A"}
                       </td>
                       <td className="px-6 py-4 text-right space-x-2">
@@ -114,7 +114,6 @@ export default function OrdersPage() {
         </main>
       </div>
 
-    
       {selectedOrder && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-40 z-50">
           <div className="bg-white rounded-xl shadow-lg w-1/2 p-6 relative">
@@ -142,9 +141,10 @@ export default function OrdersPage() {
                 ? new Date(selectedOrder.created_at).toLocaleString()
                 : "N/A"}
             </p>
-            <p>
-              <strong>Total:</strong> ${selectedOrder.total_price || "0"}
-            </p>
+           <p>
+  <strong>Total:</strong> ₹{selectedOrder.total_price || "0"}
+</p>
+
             <p>
               <strong>Status:</strong> {selectedOrder.financial_status || "N/A"}
             </p>
@@ -163,4 +163,3 @@ export default function OrdersPage() {
     </div>
   );
 }
-
