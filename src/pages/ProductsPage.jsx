@@ -64,7 +64,8 @@ export default function ProductsPage() {
                   <div className="p-4">
                     <h3 className="text-lg font-semibold text-gray-800 mb-2">{p.title}</h3>
                     <p className="text-sm text-gray-500 mb-1">Category: {p.product_type || "N/A"}</p>
-                    <p className="text-gray-700 font-medium mb-1">Price: ${parseFloat(p.variants?.[0]?.price || 0).toFixed(2)}</p>
+                    <p className="text-gray-700 font-medium mb-1">Price: ₹{parseFloat(p.variants?.[0]?.price || 0).toFixed(2)}
+                             </p>
                     <p className="text-gray-700 font-medium">Stock: {p.variants?.[0]?.inventory_quantity ?? "N/A"}</p>
                   </div>
                 </div>
