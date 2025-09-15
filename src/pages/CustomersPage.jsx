@@ -6,7 +6,7 @@ import { User, X } from "lucide-react";
 
 export default function CustomersPage() {
   const tenantId = localStorage.getItem("tenantId");
-  console.log("Tenant ID from localStorage:", tenantId); 
+  console.log("Tenant ID from localStorage:", tenantId); // <-- ADD THIS LINE
   const [customers, setCustomers] = useState([]);
   const [search, setSearch] = useState("");
   const [selectedCustomer, setSelectedCustomer] = useState(null);
@@ -117,4 +117,3 @@ export default function CustomersPage() {
     </div>
   );
 }
-
