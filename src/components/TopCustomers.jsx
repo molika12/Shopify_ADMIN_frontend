@@ -19,8 +19,9 @@ export function TopCustomers({ customers }) {
           </div>
           <div className="text-right">
             <p className="text-gray-700 font-semibold">
-              ${cust.totalSpent.toFixed(2)}
-            </p>
+          ₹{cust.totalSpent.toFixed(2)}
+        </p>
+
             <p className="text-xs text-gray-500">{cust.orderCount} orders</p>
           </div>
         </li>
@@ -28,4 +29,3 @@ export function TopCustomers({ customers }) {
     </ul>
   );
 }
-
